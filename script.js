@@ -1,5 +1,5 @@
 // ✅ Replace this with your Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = "YOUR_SCRIPT_WEB_APP_URL_HERE";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzMeHAD_PWS_g5nZjAZXcFgfeTO2idQkqVtshdusvRpHp6UgOWRgdWiUQL07onWywLQ-g/exec";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
