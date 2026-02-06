@@ -3,50 +3,30 @@ const GOOGLE_SCRIPT_URL =
 
 document.addEventListener("DOMContentLoaded",function(){
 
-  const formWrapper=document.getElementById("formWrapper");
+  document.getElementById("year").textContent=new Date().getFullYear();
+
+  const form=document.getElementById("leadForm");
+  const status=document.getElementById("statusMsg");
 
   document.getElementById("startBtn")?.addEventListener("click",()=>{
-    formWrapper.classList.add("active");
-    formWrapper.scrollIntoView({behavior:"smooth"});
+    document.getElementById("formSection")
+      .scrollIntoView({behavior:"smooth"});
   });
 
   document.getElementById("navApply")?.addEventListener("click",()=>{
-    formWrapper.classList.add("active");
+    document.getElementById("formSection")
+      .scrollIntoView({behavior:"smooth"});
   });
 
-  document.getElementById("closeForm")?.addEventListener("click",()=>{
-    formWrapper.classList.remove("active");
-  });
-
-  /* SCROLL REVEAL */
-  const reveals=document.querySelectorAll(".reveal");
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting) entry.target.classList.add("active");
-    });
-  },{threshold:0.2});
-  reveals.forEach(r=>observer.observe(r));
-
-  /* FAQ */
-  document.querySelectorAll(".faq-question").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      const answer=btn.nextElementSibling;
-      answer.style.display=answer.style.display==="block"?"none":"block";
-    });
-  });
-
-  /* SUBMIT */
-  const form=document.getElementById("leadForm");
-  form?.addEventListener("submit",async e=>{
+  form?.addEventListener("submit",async function(e){
     e.preventDefault();
-    const status=document.getElementById("statusMsg");
 
     const payload={
       fullName:fullName.value,
+      mobile:mobile.value,
       email:email.value,
-      phone:phone.value,
-      pan:pan.value,
-      monthlyIncome:monthlyIncome.value,
+      employment:employment.value,
+      income:income.value,
       loanAmount:loanAmount.value,
       page:window.location.href,
       source:"loangalaxy"
@@ -59,11 +39,20 @@ document.addEventListener("DOMContentLoaded",function(){
         headers:{ "Content-Type":"application/json" },
         body:JSON.stringify(payload)
       });
-      status.textContent="Submitted successfully!";
+
+      status.textContent="Application submitted successfully.";
       form.reset();
     }catch{
-      status.textContent="Submission failed.";
+      status.textContent="Submission failed. Please try again.";
     }
+  });
+
+  document.querySelectorAll(".faq-question").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const ans=btn.nextElementSibling;
+      ans.style.display=
+        ans.style.display==="block"?"none":"block";
+    });
   });
 
 });
