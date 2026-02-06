@@ -26,6 +26,7 @@
   <div class="planet-glow"></div>
 
   <div class="container hero-content">
+
     <h1>
       Navigate the universe of <span>modern credit.</span>
     </h1>
@@ -39,30 +40,63 @@
       <button id="startBtn" class="btn">Start Application</button>
     </div>
 
+    <!-- FORM -->
     <div class="form-wrapper" id="formWrapper">
+
       <div class="form-card">
-        <h2>Apply in Minutes</h2>
+
+        <div class="form-header">
+          <h2>Apply in Minutes</h2>
+          <button id="closeForm" class="collapse-btn">✕</button>
+        </div>
 
         <form id="leadForm">
+
           <input type="text" id="fullName" placeholder="Full Name" required>
+          <div class="error" id="errFullName"></div>
+
           <input type="email" id="email" placeholder="Email Address" required>
+          <div class="error" id="errEmail"></div>
+
           <input type="tel" id="phone" placeholder="Phone Number" required>
+          <div class="error" id="errPhone"></div>
+
           <input type="text" id="pan" placeholder="PAN Number" required>
+          <div class="error" id="errPan"></div>
 
           <select id="employmentStatus" required>
             <option value="">Select Employment Type</option>
             <option>Salaried</option>
             <option>Self-Employed</option>
           </select>
+          <div class="error" id="errEmployment"></div>
 
-          <button type="submit" class="btn full-btn">
+          <input type="text" id="pincode" placeholder="PIN Code" required>
+          <div class="error" id="errPincode"></div>
+
+          <input type="number" id="monthlyIncome" placeholder="Monthly Income" required>
+          <div class="error" id="errIncome"></div>
+
+          <input type="number" id="loanAmount" placeholder="Loan Amount Required" required>
+          <div class="error" id="errLoan"></div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="agree">
+            I agree to Terms & Privacy Policy
+          </label>
+          <div class="error" id="errAgree"></div>
+
+          <button type="submit" id="submitBtn" class="btn full-btn">
             Submit Application
           </button>
+
+          <p id="statusMsg" class="form-status"></p>
+
         </form>
 
-        <p id="formStatus" class="form-status"></p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -71,6 +105,7 @@
     <h2>Explore Our Financial Universe</h2>
 
     <div class="product-grid">
+
       <div class="product-card">
         <h3>Stellar Personal Credit</h3>
         <p>Access structured personal funding up to ₹25L.</p>
@@ -100,12 +135,13 @@
         <h3>Aurum Gold Loan</h3>
         <p>Unlock liquidity against gold with transparent rates.</p>
       </div>
+
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 LoanGalaxy. Personal Loan Application Assistance Platform.
+  © <span id="year"></span> LoanGalaxy. All rights reserved.
 </footer>
 
 <script src="script.js"></script>
