@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanGalaxy - Your Trusted Loan Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="loangalaxy-logo.png" alt="LoanGalaxy" class="logo-img">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#loans">Loans</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                </ul>
+                <a href="#apply" class="cta-button">Apply Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find Your Perfect Loan from 70+ Trusted Lenders</h1>
+                <p>Compare rates, check eligibility instantly, and get approved in minutes. Your financial journey starts here.</p>
+                <div class="hero-cta">
+                    <a href="#apply" class="cta-button">Apply Now</a>
+                    <a href="#how-it-works" class="cta-button cta-secondary">How It Works</a>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">70+</span>
+                    <span class="stat-label">Partner Lenders</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">₹500Cr+</span>
+                    <span class="stat-label">Loans Disbursed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.8★</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative stars -->
+        <div class="star" style="top: 15%; left: 10%;"></div>
+        <div class="star" style="top: 25%; left: 85%;"></div>
+        <div class="star" style="top: 45%; left: 20%;"></div>
+        <div class="star" style="top: 60%; left: 75%;"></div>
+        <div class="star" style="top: 80%; left: 40%;"></div>
+        <div class="star" style="top: 35%; left: 60%;"></div>
+    </section>
+
+    <!-- Application Form - MOVED HIGHER -->
+    <section class="section" id="apply">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Apply for Your Loan</h2>
+                <p class="section-subtitle">Get approved in 3 simple steps</p>
+            </div>
+
+            <div class="application-form">
+                <!-- Progress Indicator -->
+                <div class="progress-bar">
+                    <div class="progress-step active">
+                        <div class="step-circle">1</div>
+                        <span class="step-label">Loan Details</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-circle">2</div>
+                        <span class="step-label">Personal Info</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-circle">3</div>
+                        <span class="step-label">Income Details</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Loan Details -->
+                <div class="form-step active" id="step1">
+                    <h3>Loan Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="loanType">Loan Type <span class="required">*</span></label>
+                            <select id="loanType" required>
+                                <option value="">Select loan type</option>
+                                <option value="personal">Personal Loan</option>
+                                <option value="home">Home Loan</option>
+                                <option value="car">Car Loan</option>
+                                <option value="education">Education Loan</option>
+                                <option value="business">Business Loan</option>
+                                <option value="lap">Loan Against Property</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="loanAmountForm">Loan Amount (₹) <span class="required">*</span></label>
+                            <input type="number" id="loanAmountForm" placeholder="Enter amount" min="50000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loanTenureForm">Loan Tenure (Years) <span class="required">*</span></label>
+                            <input type="number" id="loanTenureForm" placeholder="Enter tenure" min="1" max="30" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loanPurpose">Purpose of Loan <span class="required">*</span></label>
+                            <input type="text" id="loanPurpose" placeholder="e.g., Home renovation" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" id="step1Next" disabled onclick="nextStep(2)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Personal Information -->
+                <div class="form-step" id="step2">
+                    <h3>Personal Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" placeholder="Enter full name as per PAN" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number <span class="required">*</span></label>
+                            <input type="tel" id="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pan">PAN Number <span class="required">*</span></label>
+                            <input type="text" id="pan" placeholder="Enter PAN number" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" style="text-transform: uppercase;" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Current Pincode <span class="required">*</span></label>
+                            <input type="text" id="pincode" placeholder="Enter pincode" pattern="[0-9]{6}" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(1)">Previous</button>
+                        <button type="button" class="btn btn-primary" id="step2Next" disabled onclick="nextStep(3)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Income Details -->
+                <div class="form-step" id="step3">
+                    <h3>Income Details</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="employmentType">Employment Type <span class="required">*</span></label>
+                            <select id="employmentType" required>
+                                <option value="">Select employment type</option>
+                                <option value="salaried">Salaried</option>
+                                <option value="self-employed">Self Employed</option>
+                                <option value="business">Business Owner</option>
+                                <option value="professional">Professional</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthlyIncome">Monthly Income (₹) <span class="required">*</span></label>
+                            <input type="number" id="monthlyIncome" placeholder="Enter monthly income" min="10000" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Previous</button>
+                        <button type="button" class="btn btn-primary" id="step3Submit" disabled onclick="submitApplication()">Submit Application</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Types Section -->
+    <section class="section" id="loans">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Loans for Every Need</h2>
+                <p class="section-subtitle">Browse our comprehensive range of loan products tailored to your financial goals</p>
+            </div>
+
+            <div class="loan-grid">
+                <div class="loan-card">
+                    <div class="loan-icon">💼</div>
+                    <h3>Personal Loan</h3>
+                    <p>Quick funds for any personal need - medical, wedding, travel, or emergency expenses</p>
+                    <ul class="loan-features">
+                        <li>Up to ₹40 Lakhs</li>
+                        <li>10.49% onwards</li>
+                        <li>Instant approval</li>
+                    </ul>
+                    <a href="#apply" class="loan-link">Apply Now →</a>
+                </div>
+
+                <div class="loan-card">
+                    <div class="loan-icon">🏠</div>
+                    <h3>Home Loan</h3>
+                    <p>Competitive rates for your dream home or property investment</p>
+                    <ul class="loan-features">
+                        <li>Up to ₹10 Crores</li>
+                        <li>8.50% onwards</li>
+                        <li>Up to 30 years tenure</li>
+                    </ul>
+                    <a href="#apply" class="loan-link">Apply Now →</a>
+                </div>
+
+                <div class="loan-card">
+                    <div class="loan-icon">🚗</div>
+                    <h3>Car Loan</h3>
+                    <p>Drive your dream car home with flexible EMI options</p>
+                    <ul class="loan-features">
+                        <li>Up to 100% financing</li>
+                        <li>8.75% onwards</li>
+                        <li>Quick processing</li>
+                    </ul>
+                    <a href="#apply" class="loan-link">Apply Now →</a>
+                </div>
+
+                <div class="loan-card">
+                    <div class="loan-icon">🎓</div>
+                    <h3>Education Loan</h3>
+                    <p>Invest in your future with low-interest education financing</p>
+                    <ul class="loan-features">
+                        <li>Up to ₹1.5 Crores</li>
+                        <li>9.50% onwards</li>
+                        <li>Moratorium period</li>
+                    </ul>
+                    <a href="#apply" class="loan-link">Apply Now →</a>
+                </div>
+
+                <div class="loan-card">
+                    <div class="loan-icon">💳</div>
+                    <h3>Business Loan</h3>
+                    <p>Fuel your business growth with flexible working capital</p>
+                    <ul class="loan-features">
+                        <li>Up to ₹75 Lakhs</li>
+                        <li>11.99% onwards</li>
+                        <li>Minimal documentation</li>
+                    </ul>
+                    <a href="#apply" class="loan-link">Apply Now →</a>
+                </div>
+
+                <div class="loan-card">
+                    <div class="loan-icon">🏢</div>
+                    <h3>Loan Against Property</h3>
+                    <p>Unlock your property's value for any financial need</p>
+                    <ul class="loan-features">
+                        <li>Up to ₹5 Crores</li>
+                        <li>9.25% onwards</li>
+                        <li>Flexible repayment</li>
+                    </ul>
+                    <a href="#apply" class="loan-link">Apply Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple & Transparent Process</h2>
+                <p class="section-subtitle">Get your loan approved in 4 easy steps</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Loan</h3>
+                    <p>Select the loan type and amount that fits your needs</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Compare Offers</h3>
+                    <p>Get personalized offers from 70+ lenders instantly</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Submit Application</h3>
+                    <p>Complete your application with minimal documentation</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Get Funded</h3>
+                    <p>Receive money directly in your bank account</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMI Calculator -->
+    <section class="section calculator-section" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">EMI Calculator</h2>
+                <p class="section-subtitle">Plan your loan repayment with our easy calculator</p>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label>Loan Amount: ₹<span id="loanAmountValue">500000</span></label>
+                        <input type="range" id="loanAmount" min="50000" max="5000000" value="500000" step="10000">
+                    </div>
+                    <div class="input-group">
+                        <label>Interest Rate: <span id="interestRateValue">10.5</span>%</label>
+                        <input type="range" id="interestRate" min="7" max="25" value="10.5" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Loan Tenure: <span id="loanTenureValue">5</span> Years</label>
+                        <input type="range" id="loanTenure" min="1" max="30" value="5" step="1">
+                    </div>
+                </div>
+
+                <div class="calculator-results">
+                    <div class="result-box">
+                        <span class="result-label">Monthly EMI</span>
+                        <span class="result-value">₹<span id="emiResult">10,624</span></span>
+                    </div>
+                    <div class="result-box">
+                        <span class="result-label">Total Interest</span>
+                        <span class="result-value">₹<span id="totalInterest">137,440</span></span>
+                    </div>
+                    <div class="result-box">
+                        <span class="result-label">Total Amount</span>
+                        <span class="result-value">₹<span id="totalAmount">637,440</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Lenders -->
+    <section class="section" id="partners">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Partner Lenders</h2>
+                <p class="section-subtitle">Trusted partnerships with India's leading financial institutions</p>
+            </div>
+
+            <div class="partner-grid">
+                <div class="partner-card">HDFC Bank</div>
+                <div class="partner-card">ICICI Bank</div>
+                <div class="partner-card">SBI</div>
+                <div class="partner-card">Axis Bank</div>
+                <div class="partner-card">Bajaj Finserv</div>
+                <div class="partner-card">Kotak Mahindra</div>
+                <div class="partner-card">IDFC First</div>
+                <div class="partner-card">Tata Capital</div>
+            </div>
+            <p style="text-align: center; margin-top: 32px; color: var(--text-light); font-size: 18px;">+ 62 More Trusted Partners</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="loangalaxy-logo.png" alt="LoanGalaxy" style="height: 60px; margin-bottom: 16px;">
+                    <p style="color: rgba(255,255,255,0.8); margin-top: 16px;">India's most trusted loan marketplace connecting borrowers with 70+ lenders.</p>
+                    <p style="color: rgba(255,255,255,0.6); margin-top: 12px; font-size: 14px;">A product of RCSK Consultants LLP</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#loans">Loan Products</a></li>
+                        <li><a href="#calculator">EMI Calculator</a></li>
+                        <li><a href="#partners">Our Partners</a></li>
+                        <li><a href="#apply">Apply Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Track Application</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Grievance Redressal</a></li>
+                        <li><a href="#">Fair Practice Code</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LoanGalaxy by RCSK Consultants LLP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // FORM VALIDATION - DISABLE NEXT UNTIL FILLED
+        // ============================================
+        
+        function validateStep(stepNumber) {
+            const stepElement = document.getElementById(`step${stepNumber}`);
+            const requiredInputs = stepElement.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                } else if (input.type === 'email' && !input.validity.valid) {
+                    isValid = false;
+                } else if (input.pattern && !new RegExp(input.pattern).test(input.value)) {
+                    isValid = false;
+                } else if (input.type === 'number') {
+                    const val = parseFloat(input.value);
+                    if (input.min && val < parseFloat(input.min)) isValid = false;
+                    if (input.max && val > parseFloat(input.max)) isValid = false;
+                }
+            });
+            
+            return isValid;
+        }
+
+        // Enable/disable next buttons based on validation
+        function updateStepButtons() {
+            // Step 1
+            const step1Valid = validateStep(1);
+            document.getElementById('step1Next').disabled = !step1Valid;
+            
+            // Step 2
+            const step2Valid = validateStep(2);
+            document.getElementById('step2Next').disabled = !step2Valid;
+            
+            // Step 3
+            const step3Valid = validateStep(3);
+            document.getElementById('step3Submit').disabled = !step3Valid;
+        }
+
+        // Add event listeners to all form inputs
+        document.querySelectorAll('.application-form input, .application-form select').forEach(input => {
+            input.addEventListener('input', updateStepButtons);
+            input.addEventListener('change', updateStepButtons);
+            
+            // Auto-uppercase PAN
+            if (input.id === 'pan') {
+                input.addEventListener('input', function() {
+                    this.value = this.value.toUpperCase();
+                });
+            }
+        });
+
+        // ============================================
+        // EMI CALCULATOR
+        // ============================================
+        
+        const loanAmountInput = document.getElementById('loanAmount');
+        const interestRateInput = document.getElementById('interestRate');
+        const loanTenureInput = document.getElementById('loanTenure');
+
+        const loanAmountValue = document.getElementById('loanAmountValue');
+        const interestRateValue = document.getElementById('interestRateValue');
+        const loanTenureValue = document.getElementById('loanTenureValue');
+
+        const emiResult = document.getElementById('emiResult');
+        const totalInterest = document.getElementById('totalInterest');
+        const totalAmount = document.getElementById('totalAmount');
+
+        function formatNumber(num) {
+            return num.toLocaleString('en-IN');
+        }
+
+        function calculateEMI() {
+            const principal = parseFloat(loanAmountInput.value);
+            const rate = parseFloat(interestRateInput.value) / 12 / 100;
+            const tenure = parseFloat(loanTenureInput.value) * 12;
+
+            const emi = principal * rate * Math.pow(1 + rate, tenure) / (Math.pow(1 + rate, tenure) - 1);
+            const total = emi * tenure;
+            const interest = total - principal;
+
+            loanAmountValue.textContent = formatNumber(principal);
+            interestRateValue.textContent = parseFloat(interestRateInput.value).toFixed(1);
+            loanTenureValue.textContent = loanTenureInput.value;
+
+            emiResult.textContent = formatNumber(Math.round(emi));
+            totalInterest.textContent = formatNumber(Math.round(interest));
+            totalAmount.textContent = formatNumber(Math.round(total));
+        }
+
+        loanAmountInput.addEventListener('input', calculateEMI);
+        interestRateInput.addEventListener('input', calculateEMI);
+        loanTenureInput.addEventListener('input', calculateEMI);
+
+        calculateEMI();
+
+        // ============================================
+        // MULTI-STEP FORM NAVIGATION
+        // ============================================
+        
+        let currentStep = 1;
+
+        function nextStep(step) {
+            // Hide current step
+            document.getElementById('step' + currentStep).classList.remove('active');
+            
+            // Update progress
+            document.querySelectorAll('.progress-step')[currentStep - 1].classList.add('completed');
+            document.querySelectorAll('.progress-step')[currentStep - 1].classList.remove('active');
+            
+            // Show next step
+            currentStep = step;
+            document.getElementById('step' + currentStep).classList.add('active');
+            document.querySelectorAll('.progress-step')[currentStep - 1].classList.add('active');
+            
+            // Scroll to top of form
+            document.querySelector('.application-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function prevStep(step) {
+            // Hide current step
+            document.getElementById('step' + currentStep).classList.remove('active');
+            
+            // Update progress
+            document.querySelectorAll('.progress-step')[currentStep - 1].classList.remove('active');
+            document.querySelectorAll('.progress-step')[step - 1].classList.remove('completed');
+            
+            // Show previous step
+            currentStep = step;
+            document.getElementById('step' + currentStep).classList.add('active');
+            document.querySelectorAll('.progress-step')[currentStep - 1].classList.add('active');
+            
+            // Scroll to top of form
+            document.querySelector('.application-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        async function submitApplication() {
+            const data = {
+                loanType: document.getElementById('loanType').value,
+                loanAmount: document.getElementById('loanAmountForm').value,
+                loanTenure: document.getElementById('loanTenureForm').value,
+                loanPurpose: document.getElementById('loanPurpose').value,
+                fullName: document.getElementById('fullName').value,
+                dob: document.getElementById('dob').value,
+                email: document.getElementById('email').value,
+                mobile: document.getElementById('mobile').value,
+                pan: document.getElementById('pan').value,
+                pincode: document.getElementById('pincode').value,
+                employmentType: document.getElementById('employmentType').value,
+                monthlyIncome: document.getElementById('monthlyIncome').value
+            };
+
+            try {
+                const response = await fetch("https://e0e7lhxbeb.execute-api.ap-south-1.amazonaws.com/prod/submit", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Thank you for your application! Our team will review it and contact you within 24 hours.\n\nApplication ID: ' + result.applicationId);
+
+                    // Clear inputs
+                    document.querySelectorAll('.application-form input, .application-form select')
+                        .forEach(el => el.value = "");
+
+                    document.getElementById('step3').classList.remove('active');
+                    document.getElementById('step1').classList.add('active');
+
+                    document.querySelectorAll('.progress-step').forEach(step => {
+                        step.classList.remove('completed', 'active');
+                    });
+
+                    document.querySelectorAll('.progress-step')[0].classList.add('active');
+                    currentStep = 1;
+                    updateStepButtons();
+
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+
+            } catch (error) {
+                alert("Server error. Please try again.");
+                console.error(error);
+            }
+        }
+
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Initialize button states on page load
+        updateStepButtons();
+    </script>
+</body>
+</html>
